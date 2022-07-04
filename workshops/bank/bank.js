@@ -5,6 +5,8 @@
 //      1.The Client’s name
 //      2.The Client’s current account balance
 
+const { isArray } = require("tone");
+
 // For example:
 // [
 //     { firstName: "Ziv", lastName: "Ventura", balance: "220" },
@@ -21,15 +23,29 @@
 // 2.If an exception occurs, simply return null
 // 3.To test the function's result, see file index.js
 const calculateBalance = (data) => {
-    // TODO: implement me!
-    // TODO: implement me!
-    // TODO: implement me!
-    // TODO: implement me!
-
-    return "0.00";
-    // TODO: return null if an error occurs
-}
+    try {
+        if (!isArray(data)) throw error
+        let sum = 0;
+        for (let index = 0; index < data.length; index++) {
+            
+            if (
+                isNaN(data[index].balance) ||
+                data[index].balance === "" ||
+                data[index].balance === null
+            )
+                throw error;
+            const balance = parseFloat(data[index].balance);
+            // console.log(typeof balance);
+            sum += balance;
+            // console.log(sum);
+        }
+        const avgBalance = (sum / data.length).toFixed(2);
+        return avgBalance.toString();
+    } catch (error) {
+        return null;
+    }
+};
 
 module.exports = {
-    calculateBalance
-}
+    calculateBalance,
+};
