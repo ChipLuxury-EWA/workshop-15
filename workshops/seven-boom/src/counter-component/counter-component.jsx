@@ -1,24 +1,15 @@
 import "./counter-component.css";
 import React, { useState } from "react";
+import { checkSeven } from "../services/counter.service";
 
 const CounterComponent = (props) => {
-    const [counterValue, setCounterValue] = useState(0);
+    const [counterValue, setCounterValue] = useState(1);
     const [counterValueBoom, setCounterValueBoom] = useState("");
 
-    React.useEffect(() => {checkSeven()}, [counterValue]);
+    React.useEffect(() => {
+        setCounterValueBoom(checkSeven(counterValue, 7))
+    }, [counterValue]);
 
-    const checkSeven = () => {
-        console.log(counterValue.toString().indexOf(7) !== -1)
-        console.log(counterValue % 7 === 0)
-        if (
-            counterValue % 7 === 0 ||
-            counterValue.toString().indexOf("7") !== -1
-        ) {
-            setCounterValueBoom("BOOM");
-        } else {
-            setCounterValueBoom(counterValue);
-        }
-    };
 
     return (
         <div className="counter-component">
