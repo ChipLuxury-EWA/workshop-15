@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { checkSeven } from "../services/counter.service";
 
 const CounterComponent = (props) => {
-    const [counterValue, setCounterValue] = useState(1);
+    const [counterValue, setCounterValue] = useState(0);
     const [counterValueBoom, setCounterValueBoom] = useState("");
 
     React.useEffect(() => {

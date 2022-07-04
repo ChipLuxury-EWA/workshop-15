@@ -19,7 +19,7 @@ test('Click seven times +', async () => {
   render(<App />);
   await clickIncrement(7)
   await waitFor(() => {
-    expect(screen.getByText("7")).toBeInTheDocument()
+    expect(screen.getByText("SUPA-BOOM")).toBeInTheDocument()
   })
 });
 
@@ -27,7 +27,7 @@ test('Click seven times -', async () => {
   render(<App />);
   await clickDecrement(7)
   await waitFor(() => {
-    expect(screen.getByText("-7")).toBeInTheDocument()
+    expect(screen.getByText("SUPA-BOOM")).toBeInTheDocument()
   })
 });
 
@@ -36,7 +36,7 @@ test('Increment and then decrement', async () => {
   await clickIncrement(20)
   await clickDecrement(3)
   await waitFor(() => {
-    expect(screen.getByText("17")).toBeInTheDocument()
+    expect(screen.getByText("BOOM")).toBeInTheDocument()
   })
 });
 
@@ -54,6 +54,6 @@ test('Click seven times +, then seven times - (to zero)', async () => {
   await clickIncrement(7);
   await clickDecrement(7);
   await waitFor(() => {
-    expect(screen.getByText("0")).toBeInTheDocument()
+    expect(screen.getByText("BOOM")).toBeInTheDocument()
   })
 });
