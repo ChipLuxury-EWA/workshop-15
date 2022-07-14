@@ -1,6 +1,7 @@
 const CryptoJS = require("crypto-js");
 const fs = require('fs');
-const KEY = process.env.KEY;
+// const KEY = process.env.KEY;
+const KEY = "m0nday"
 
 if (KEY) {
     fs.readFile('tests_secret', 'utf8', (err, data) => {
